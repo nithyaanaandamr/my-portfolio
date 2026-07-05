@@ -2,25 +2,28 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 const DATA = {
   name: "Nithyaanadam R",
-  title: "Software Engineer",
-  subtitle: "Full-Stack Developer · Application Engineer",
+  title: "SDE 2 · Frontend Engineer",
+  subtitle: "Rich-Text Editors · Real-Time Collaboration · Accessibility",
   email: "sainithyaanaandamr@gmail.com",
   phone: "+91 7550279496",
-  linkedin: "https://linkedin.com",
-  tagline: "Building collaborative web experiences that scale.",
+  linkedin: "https://www.linkedin.com/in/nithyaanaandam-radhakrishnan-153aa4228/",
+  portfolio: "https://nithyaanaandamr.github.io/my-portfolio/",
+  workRights: "Australian Working Visa · Valid until 2028",
+  tagline: "Frontend engineer specialising in rich-text editors, real-time collaboration, and accessible web experiences.",
   about:
-    "A determined software professional with hands-on experience in full-stack development and application engineering at Zoho Corporation. I work on scalable web applications, front-end engineering, and collaborative platforms — with a passion for accessible, performant, and beautifully crafted software.",
+    "Frontend engineer with 3+ years at Zoho Corporation, building production-grade authoring tools used by thousands of concurrent users across enterprise teams. I specialise in rich-text editor engineering, real-time collaborative features, and WCAG accessibility — and I bring a strong eye for architecture, developer tooling, and clean, performant code. Based in Chennai and open to opportunities in Australia.",
   experience: [
     {
-      role: "Member Technical Staff",
+      role: "Software Development Engineer II",
       company: "Zoho Corporation",
       location: "Chennai",
       period: "June 2023 – Present",
       points: [
-        "Part of an extensive web application team focused on front-end engineering.",
-        "Delivered features using Web Workers, WebSockets, and integrations across Zoho's product ecosystem.",
-        "Deep knowledge of collaborative platforms and Operational Transform techniques.",
-        "Ensures web apps meet WCAG accessibility guidelines.",
+        "Engineered clip, paste, and rich-text editor functionalities for an enterprise authoring tool serving thousands of concurrent users across multiple teams and product editions.",
+        "Led WCAG 2.0 accessibility implementation across the product front-end, ensuring compliance across the full accessibility landscape of a multi-edition enterprise platform.",
+        "Built real-time collaborative features leveraging Operational Transform, WebSockets, and Web Workers for a seamless multi-user editing experience.",
+        "Developed internal developer tooling — including copy watchers and a dedicated productivity web interface using AI-assisted development — adopted daily by the engineering team.",
+        "Managed integrations across Zoho's product ecosystem, coordinating front-end compatibility across multiple product surfaces.",
       ],
     },
     {
@@ -29,32 +32,50 @@ const DATA = {
       location: "Chennai",
       period: "Oct 2022 – May 2023",
       points: [
-        "Developed a solo Windows AppX application under the Windows App Development team.",
-        "Built with C#, XAML, and SQLite following MVVM and Clean Architecture + SOLID Principles.",
-        "App inspired by social forums: users could post, comment, and react to content.",
+        "Solely designed and developed a Windows AppX social forum application under the Windows App Development team.",
+        "Built with C#, XAML, and SQLite following MVVM and Clean Architecture patterns, strictly adhering to SOLID principles.",
+        "Delivered a full-featured platform with post, comment, and reaction capabilities within the internship period.",
       ],
     },
   ],
   skills: [
-    { category: "Languages", items: ["C++", "C#", "JavaScript", "Python", "Java", "C", "HTML5", "CSS3", "SQL"] },
-    { category: "Frameworks & Tools", items: ["React.js", "Node.js", "XAML", "SQLite", "Git"] },
-    { category: "Concepts", items: ["Operational Transform", "Web Workers", "WebSockets", "WCAG Accessibility", "Protobuf"] },
-    { category: "Architecture", items: ["MVVM", "Clean Architecture", "SOLID Principles", "Agile"] },
+    { category: "Specialisations", items: ["Rich-Text Editing", "Real-Time Collaboration", "Accessibility (WCAG 2.0 AA)", "Clipboard & Editor APIs", "Operational Transform", "Web Workers", "WebSockets"] },
+    { category: "Languages", items: ["JavaScript", "C#", "C++", "Python", "Java", "HTML5", "CSS3", "SQL"] },
+    { category: "Frameworks & Tools", items: ["React.js", "Node.js", "Protobuf", "Git", "XAML", "SQLite"] },
+    { category: "Architecture & Patterns", items: ["MVVM", "Clean Architecture", "SOLID Principles", "Agile", "AI-Assisted Development"] },
   ],
   projects: [
+    {
+      title: "Personal Portfolio",
+      tech: ["React", "Vite", "GitHub Pages", "WCAG 2.0 AA"],
+      description:
+        "Designed and built this portfolio from scratch — fully responsive, WCAG 2.0 AA compliant, and deployed via GitHub Pages. An ongoing project serving as a foundation for broader open-source work.",
+      icon: "🌐",
+      link: "https://nithyaanaandamr.github.io/my-portfolio/",
+    },
+    {
+      title: "Developer Productivity Suite (Zoho Internal)",
+      tech: ["React", "Node.js", "AI-Assisted Dev", "Web Interface"],
+      description:
+        "Built copy watchers and a dedicated developer web interface using AI-assisted tooling, streamlining front-end workflows for the engineering team. Adopted daily by teammates across the product.",
+      icon: "⚙️",
+      link: null,
+    },
     {
       title: "Image Regeneration via Genetic Algorithm",
       tech: ["Python", "GARI", "Image Processing"],
       description:
-        "Using GARI (Genetic Algorithm for Reproducing Images), regenerates images from low-quality or downsized versions. Includes in-depth analysis comparing image types, quality, and color formats to identify optimal algorithm conditions.",
+        "Used GARI (Genetic Algorithm for Reproducing Images) to regenerate images from low-quality sources. Conducted in-depth analysis across image types, quality settings, and colour formats to identify optimal algorithm conditions.",
       icon: "🧬",
+      link: null,
     },
     {
       title: "Smart Traffic Management with Deep Learning",
       tech: ["YOLO", "Object Detection", "Computer Vision"],
       description:
-        "A dynamically switching traffic signal system using YOLO-based object recognition. Reads video feeds, takes periodic snapshots, and intelligently opens and closes traffic signals based on real-time vehicle density.",
+        "A dynamically switching signal system using YOLO-based object recognition. Reads live video, takes periodic snapshots, and intelligently opens and closes traffic signals based on real-time vehicle density.",
       icon: "🚦",
+      link: null,
     },
   ],
   education: {
@@ -287,7 +308,7 @@ function Nav({ active }) {
 }
 
 function Hero() {
-  const roles = ["Full-Stack Developer", "Front-End Engineer", "Application Developer", "Web App Architect"];
+  const roles = ["Frontend Engineer", "Editor Experience Engineer", "Accessibility Engineer", "React Developer", "SDE 2"];
   const typed = useTypewriter(roles, 75, 2000);
 
   return (
@@ -309,9 +330,14 @@ function Hero() {
       <div aria-hidden="true" style={{ position: "absolute", bottom: "10%", right: "8%", width: 300, height: 300, background: "radial-gradient(circle, rgba(196,92,86,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: 780, width: "100%", textAlign: "center" }}>
-        <p style={{ color: "#E8706A", fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 24 }}>
-          — Available for opportunities —
-        </p>
+        <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginBottom: 24 }}>
+          <span style={{ color: "#E8706A", fontFamily: "'Space Grotesk', sans-serif", fontSize: 13, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            — Available for opportunities —
+          </span>
+          <span style={{ background: "rgba(232,112,106,0.1)", color: "#B0A8A8", fontFamily: "'Space Grotesk', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.06em", padding: "2px 10px", borderRadius: 20, border: "1px solid rgba(232,112,106,0.25)" }}>
+            🇦🇺 {DATA.workRights}
+          </span>
+        </div>
 
         <h1
           style={{
@@ -395,7 +421,8 @@ function Hero() {
           {[
             { value: "3+", label: "Years at Zoho" },
             { value: "9.3", label: "CGPA" },
-            { value: "WCAG", label: "Accessibility" },
+            { value: "WCAG 2.0", label: "Accessibility" },
+            { value: "AU", label: "Work Rights" },
           ].map(({ value, label }) => (
             <div key={label} role="listitem" style={{ textAlign: "center" }}>
               <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(1.6rem,4vw,2.4rem)", fontWeight: 700, color: "#E8706A", lineHeight: 1 }}>{value}</div>
@@ -425,10 +452,10 @@ function About() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {[
-                { icon: "💼", label: "Current role", value: "Member Technical Staff, Zoho" },
-                { icon: "📍", label: "Location", value: "Chennai, India" },
+                { icon: "💼", label: "Current role", value: "SDE 2, Zoho Corporation" },
+                { icon: "📍", label: "Based in", value: "Chennai · Open to Australia" },
                 { icon: "🎓", label: "Education", value: "B.E. CSE — 9.3 CGPA" },
-                { icon: "🛠", label: "Focus", value: "Collaborative Web Apps & Front-End" },
+                { icon: "🛠", label: "Specialisation", value: "Rich-Text Editors · Accessibility · Real-Time Collab" },
               ].map(({ icon, label, value }) => (
                 <div key={label} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
                   <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1.4 }}>{icon}</span>
@@ -517,7 +544,7 @@ function Experience() {
                         {exp.period}
                       </span>
                     </div>
-                    <p style={{ color: "#B0A8A8", fontSize: 14, marginBottom: 16, fontWeight: 500 }}>
+                    <p style={{ color: "#B0A8A8", fontSize: 14, marginBottom: 16, fontWeight: 500, textAlign: "left" }}>
                       {exp.company} · {exp.location}
                     </p>
                     <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
@@ -598,7 +625,7 @@ function Projects() {
             Things I've built.
           </h2>
         </FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 24 }}>
           {DATA.projects.map((proj, i) => (
             <FadeIn key={proj.title} delay={i * 0.1}>
               <article
@@ -612,15 +639,28 @@ function Projects() {
                   boxSizing: "border-box",
                   transition: "border-color 0.2s, transform 0.2s",
                   cursor: "default",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(232,112,106,0.4)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(232,112,106,0.12)"; e.currentTarget.style.transform = "translateY(0)"; }}
               >
-                <div style={{ fontSize: 36, marginBottom: 20 }} role="img" aria-label={proj.icon === "🧬" ? "DNA / biology" : "Traffic light"}>{proj.icon}</div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
+                  <div style={{ fontSize: 36 }} role="img" aria-label={proj.title}>{proj.icon}</div>
+                  {proj.link ? (
+                    <a href={proj.link} target="_blank" rel="noopener noreferrer" aria-label={`View ${proj.title}`}
+                      style={{ color: "#E8706A", fontSize: 13, fontWeight: 600, textDecoration: "none", border: "1px solid rgba(232,112,106,0.3)", borderRadius: 6, padding: "4px 10px", transition: "background 0.2s" }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = "rgba(232,112,106,0.1)"}
+                      onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                    >↗ View</a>
+                  ) : proj.title.includes("Zoho") ? (
+                    <span style={{ color: "rgba(176,168,168,0.45)", fontSize: 11, fontWeight: 600, border: "1px solid rgba(176,168,168,0.15)", borderRadius: 6, padding: "4px 10px", letterSpacing: "0.04em" }}>Internal</span>
+                  ) : null}
+                </div>
                 <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(1rem,2.5vw,1.15rem)", color: "#F5F0F0", fontWeight: 700, margin: "0 0 12px", lineHeight: 1.35 }}>
                   {proj.title}
                 </h3>
-                <p style={{ color: "rgba(176,168,168,0.7)", fontSize: 14, lineHeight: 1.75, margin: "0 0 20px" }}>
+                <p style={{ color: "rgba(176,168,168,0.7)", fontSize: 14, lineHeight: 1.75, margin: "0 0 20px", flex: 1 }}>
                   {proj.description}
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }} role="list" aria-label="Technologies used">
@@ -684,7 +724,7 @@ function Contact() {
             Let's work together.
           </h2>
           <p style={{ color: "rgba(176,168,168,0.6)", fontSize: "clamp(0.9rem,2vw,1.05rem)", marginBottom: 48, lineHeight: 1.75 }}>
-            Open to full-time roles, freelance projects, and interesting conversations.
+            Open to full-time roles in Australia and beyond. Australian working visa valid until 2028.
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -692,12 +732,12 @@ function Contact() {
             {[
               { href: `mailto:${DATA.email}`, label: "Email", value: DATA.email, icon: "✉️" },
               { href: `tel:${DATA.phone}`, label: "Phone", value: DATA.phone, icon: "📞" },
-              { href: DATA.linkedin, label: "LinkedIn", value: "View profile", icon: "🔗" },
+              { href: DATA.linkedin, label: "LinkedIn", value: "linkedin.com/in/nithyaanaandam-radhakrishnan", icon: "🔗" },
+              { href: DATA.portfolio, label: "Portfolio", value: "nithyaanaandamr.github.io/my-portfolio", icon: "🌐" },
             ].map(({ href, label, value, icon }) => (
               <a
                 key={label}
                 href={href}
-                target="_blank"
                 aria-label={`${label}: ${value}`}
                 style={{
                   display: "flex",
@@ -740,6 +780,25 @@ function Footer() {
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    // Set page title
+    document.title = "N.R's Portfolio";
+    // Set favicon to a monogram SVG — dark background, pastel red N
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="14" fill="#0A0909"/>
+      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Georgia, serif" font-size="30" font-weight="700" fill="#E8706A">N</text>
+    </svg>`;
+    const encoded = "data:image/svg+xml," + encodeURIComponent(svg);
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.href = encoded;
+  }, []);
 
   useEffect(() => {
     const sections = NAV_ITEMS.map((n) => n.toLowerCase()).concat(["hero"]);
